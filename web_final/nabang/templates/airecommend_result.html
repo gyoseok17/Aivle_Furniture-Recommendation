@@ -1,0 +1,188 @@
+{% load static %}
+{% load color_filters %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 방 나방</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="{% url 'index' %}">
+            <img src="{% static 'images/logo.png' %}" alt="로고" class="logo">
+            <ul class="nav-menu">
+                <li><a href="/airecommend/">맞춤형 가구 추천</a></li>
+                <li><a href="/airemodeling/">AI 리모델링 컨설팅</a></li>
+            </ul>
+            {% if not user.is_authenticated %}
+            <div class="nav-right">
+                <a href="#" class="nav-login-link">로그인</a>
+                <a href="/signup" class="signup-button">회원가입</a>
+            </div>
+            {% else %}
+            <div class="nav-right">
+                <a class="nav-login-link" href="#">{{user}}님!</a>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="signup-button">로그아웃</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="airecommend-page">
+    <section class="ai-recommend-section">
+        <div class="uploaded-image">
+            {% if image_url %}
+                <img id="uploaded-image" src="{{ image_url.url }}" alt="Uploaded Image">
+            {% endif %}
+        </div>
+    </section>
+
+    <main>
+        <!-- 맞춤형 가구 추천에 대한 주요 내용 -->
+        {% block content %}
+<div class="analysis-results">
+    <!-- 분석 결과 제목 중앙 정렬 -->
+    <h1 style="text-align: center;">{{ result }}</h1>
+    <div class="results-container">
+        {% if color_per %}
+        <!-- 원형 그래프를 표시할 캔버스 요소 -->
+        <div class="chart-container">
+            <canvas id="colorChart"></canvas>
+        </div>
+        <!-- 스타일 분석 결과를 표시하는 영역 -->
+        <div class="styles-analysis">
+            {% for style, per in style_per %}
+            <p>스타일: {{ style }}<br> 비율: {{ per }}%</p>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>분석 결과가 없습니다.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+        <div class="product-list-container">
+            <h2 class="product-list-title">추천 가구</h2>
+            <div class="product-row">
+                {%if furniture%}
+                {% for fu in furniture %}
+                <div class="product-card">
+                    <a href="https://www.amazon.com/s?k={{ fu.2 }}" target="_blank" class="product-link">
+                        <div class="product-image" style="background-image: url('{{fu.6}}');"></div>
+                        <div class="product-info">
+                            <h3 class="product-name">{{ fu.2 }}</h3>
+                            <p class="product-price">{{ fu.3 }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+                {%else%}
+                <h3>아마존 제품 추천없습니당</h3>
+                {%endif%}
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>Copyright AIVLE School Team 5. All Rights Reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="/rule/">개인정보 처리방침 및 이용약관</a></li>
+                    <li><a href="/board/">문의하기</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+    <div id="login-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button">&times;</span>
+            <!-- 로그인 폼 -->
+            {% if not user.is_authenticated %}
+            <form id="login-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <h1>로그인</h1>
+                <input type="text" placeholder="아이디" name="username" required>
+                <input type="password" placeholder="비밀번호" name="password" required>
+                <button type="submit">로그인</button>
+            </form>
+            <!-- 소셜 로그인 버튼 -->
+            <div class="social-login">
+                {% load socialaccount %}
+                <a href="{% provider_login_url 'kakao' %}"><button class="social-button kakao-login">카카오톡 로그인</button></a>
+                <a href="{% provider_login_url 'naver' %}"><button class="social-button naver-login">네이버 로그인</button></a>
+                <a href="{% provider_login_url 'google' %}"><button class="social-button google-login">구글 로그인</button></a>
+                <a href="{% url 'find_user_info' %}"><button class="social-button id_serch">아이디/비밀번호 찾기</button></a>
+            </div>
+            {% else %}
+                {% block additional_content %}
+                <h1> 내정보 </h1>
+                <ul>
+                    <li> name : {{user}}</li>
+                    <li> email : {{user.email}}</li>
+                    <li>{{user.date_joined}}</li>
+                </ul>
+                <a href="{% url 'password_change' %}">[암호 변경하기]</a>
+                <a href="{% url 'delete_account' %}">[회원탈퇴]</a>
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                 {% endif %}
+                {% endblock %}
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var pers = [];
+            var colors = [];
+            var cname = [];
+            {% for color, per in color_per %}
+                pers.push({{per}});
+                c0 = {{ color.0|to_rgb }};
+                c1 = {{ color.1|to_rgb }};
+                c2 = {{ color.2|to_rgb }};
+                colors.push('rgb(' + c0 + ',' + c1 + ',' + c2 + ')');
+                cname.push('('+c0+', '+c1+', '+c2+')')
+            {% endfor %}
+
+            const ctx = document.getElementById('colorChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: pers,
+                        backgroundColor: colors,
+                    }],
+                    labels: cname 
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true, // 종횡비 유지
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: '색상 분석 결과'
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="{% static 'js/airecommend.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+</body>
+</html>

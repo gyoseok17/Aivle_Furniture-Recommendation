@@ -1,0 +1,12 @@
+python 3.9
+pip install django
+pip install django-allauth
+pip install social-auth-app-django
+pip install markdown
+pip install numpy
+pip install scikit-learn
+pip install Pillow
+pip install google-cloud-vision
+pip install openai
+pip install matplotlib
+pip install mysqlclient

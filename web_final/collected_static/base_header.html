@@ -1,0 +1,80 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맞춤형 가구 추천</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="{% url 'index' %}">
+            <img src="{% static 'images/logo.png' %}" alt="로고" class="logo">
+            <ul class="nav-menu">
+                <li><a href="/airecommend/">맞춤형 가구 추천</a></li>
+                <li><a href="/airemodeling/">AI 리모델링 컨설팅</a></li>
+            </ul>
+            {% if not user.is_authenticated %}
+            <div class="nav-right">
+                <a href="#" class="nav-login-link">로그인</a>
+                <a href="/signup" class="signup-button">회원가입</a>
+            </div>
+            {% else %}
+            <div class="nav-right">
+                <a class="nav-login-link" href="#">{{user}}님!</a>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="signup-button">로그아웃</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+    <div id="login-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button">&times;</span>
+            <!-- 로그인 폼 -->
+            {% if not user.is_authenticated %}
+            <form id="login-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <h1>로그인</h1>
+                <div class="input-container">
+                    <input type="text" placeholder="아이디" name="username" required>
+                    <input type="password" placeholder="비밀번호" name="password" required>
+                    <button type="submit" class="login-button">로그인</button>
+                </div>
+            </form>
+            <!-- 소셜 로그인 버튼 -->
+            <div class="social-icons">
+                {% load socialaccount %}
+                <a href='{% provider_login_url "kakao" %}' class="social-icon"><img src="{% static 'images/kakaotalk.png' %}" alt="kakaotalk"></a>
+                <a href="{% provider_login_url 'naver' %}" class="social-icon"><img src="{% static 'images/naver.png' %}" alt="naver"></a>
+                <a href="{% provider_login_url 'google' %}" class="social-icon"><img src="{% static 'images/google.png' %}" alt="google"></a>
+            </div>
+            <div class="signup-prompt">
+                아직 회원이 아니신가요?? <a href="/signup">회원가입</a> <!-- 회원가입 링크 -->
+            </div>
+            {% else %}
+                {% block additional_content %}
+                <h1> 내정보 </h1>
+                <ul>
+                    <li> name : {{user}}</li>
+                    <li> email : {{user.email}}</li>
+                    <li>{{user.date_joined}}</li>
+                </ul>
+                <a href="{% url 'password_change' %}">[암호 변경하기]</a>
+                <a href="{% url 'delete_account' %}">[회원탈퇴]</a>
+                {% endblock %}
+            {% endif %}
+            {% if messages %}
+            <script type="text/javascript">
+                window.onload = function() {
+                    {% for message in messages %}
+                        alert("{{ message }}");
+                    {% endfor %}
+                }
+            </script>
+            {%else%}
+            {% endif %}
+        </div>
+    </div>
+</head>

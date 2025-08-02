@@ -1,0 +1,876 @@
+nav {
+    width: 100%; /* 네비게이션 바 너비 화면 전체 */
+    position: fixed;
+    top: 0;
+    left: 0; /* 왼쪽 가장자리에서 시작 */
+    height: 90px;
+    display: flex;
+    align-items: center;
+    background-color: #F5F5F5;
+    padding: 0; /* 패딩 제거 */
+    box-sizing: border-box;
+    z-index: 1000;
+    border-bottom: 2px solid #DFDFDF;
+}
+
+.nav-container {
+    width: 100%; /* 네비게이션 바 너비 화면 전체 */
+    background-color: #F5F5F5; /* 배경색 */
+}
+
+.nav-content {
+    max-width: 1200px; /* 내부 콘텐츠 최대 너비 */
+    margin: 0 auto; /* 내부 콘텐츠 중앙 정렬 */
+    padding: 10px 60px; /* 상하 10px, 좌우 20px 패딩 */
+    width: 100%; /* 너비 화면 전체 */
+    display: flex;
+    justify-content: space-between; /* 내용을 양쪽 끝으로 정렬 */
+    align-items: center;
+}
+
+.logo {
+    width: auto; /* 너비는 자동으로 설정하여 비율 유지 */
+    height: 65px;
+    margin-top: 20px; /* 상단에 마진 추가 */
+    margin-bottom: 10px;
+}
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute; /* 절대 위치 */
+    left: 50%; /* 부모 요소의 가로 너비의 50% 위치에 배치 */
+    transform: translateX(-60%); /* 자기 자신의 너비의 50%만큼 왼쪽으로 이동 */
+    display: flex;
+}
+.nav-menu li {
+    margin-left: 60px; /* 왼쪽 마진을 추가하여 간격 조절 */
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #27282A;
+    font-size: 17px;
+    font-weight: bold;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-login-link {
+    margin-right: 20px; /* 오른쪽 여백 */
+    text-decoration: none; /* 밑줄 제거 */
+    color: #27282A; /* 글자 색상 */
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.signup-button {
+    padding: 6px 15px; /* 내부 여백 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-size: 14px;
+    background-color: #27282A;
+    color: #F5F5F5; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 14px; /* 테두리 둥글게 */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5; /* 배경색 */
+    padding-top: 100px; /* 네비게이션 바 높이보다 조금 더 큰 패딩 */
+    margin: 0; /* 모든 마진 제거 */
+
+}
+
+.custom-furniture-section {
+    display: flex;
+    justify-content: space-between; /* 요소들 사이의 간격을 유지 */
+    align-items: center;
+    margin-top: 30px;
+    padding-left: 50px; /* 왼쪽 패딩 */
+    padding-right: 50px; /* 오른쪽 패딩 */
+    margin-left: auto; /* 가운데 정렬을 위한 왼쪽 자동 마진 */
+    margin-right: auto; /* 가운데 정렬을 위한 오른쪽 자동 마진 */
+    max-width: 1200px; /* 최대 폭 설정 */
+    margin-bottom: 40px; /* 하단 마진 추가 */
+}
+
+.text-content {
+    flex-basis: 55%;
+    margin-right: 40px; /* 우측에 마진 추가 */
+}
+
+.text-content h2 {
+    font-size: 32px;
+}
+
+.text-content p {
+    font-size: 20px;
+}
+
+.image-content {
+    flex-basis: 55%; /* 컨테이너 폭 설정 */
+    text-align: center; /* 이미지를 가운데 정렬 */
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 화면이 600px 이하일 때 글자 크기 조정 */
+@media (max-width: 1000px) {
+    .text-content h2 {
+        font-size: 28px;
+    }
+
+    .text-content p {
+        font-size: 16px;
+    }
+}
+
+.recommend-button {
+    padding: 10px 20px; /* 내부 여백 */
+    text-decoration: none; /* 밑줄 제거 */
+    background-color: #27282A;
+    color: #F5F5F5; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 8px; /* 테두리 둥글게 */
+}
+
+.ai-remodeling-section {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 수직 중앙 정렬 */
+    background-color: white;
+    padding: 20px 0; /* 상하 패딩만 추가 */
+    box-sizing: border-box;
+    width: 100%; /* 부모 컨테이너의 너비 */
+}
+
+.content-box {
+    max-width: 1290px;
+    width: 100%;
+    padding: 20px;
+    padding-right: 60px; /* 오른쪽 패딩 */
+    box-sizing: border-box;
+}
+
+
+.content-box .text-content {
+    text-align: right; /* 텍스트 우측 정렬 */
+    margin-right: 0px;
+    /* 기타 스타일 */
+}
+
+
+
+.bottom-image {
+    max-width: 1200px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.bottom-image img {
+    width: 100%; /* 이미지 너비 */
+    height: auto; /* 높이 자동 조절 */
+    opacity: 0.4; /* 투명도 40% */
+    display: block; /* 블록 레벨 요소로 표시 */
+    margin-top: 10px;
+    margin-left: auto; /* 가운데 정렬을 위한 좌측 마진 */
+    margin-right: auto; /* 가운데 정렬을 위한 우측 마진 */
+    display: inline-block; /* 이미지를 인라인 블록 요소로 설정 */
+}
+.bottom-image-section {
+    display: flex;
+    flex-direction: column; /* 세로 방향 정렬 */
+    align-items: center; /* 중앙 정렬 */
+    background-color: white; /* 배경색 하얗게 */
+    box-sizing: border-box; /* 패딩과 테두리가 너비에 포함되도록 */
+    padding-left: 50px; /* 왼쪽 패딩 */
+    padding-right: 50px; /* 오른쪽 패딩 */
+    max-width: 100%; /* 최대 너비 100%로 설정 */
+    margin-left: auto; /* 가운데 정렬을 위한 왼쪽 자동 마진 */
+    margin-right: auto; /* 가운데 정렬을 위한 오른쪽 자동 마진 */
+    padding: 20px; /* 상하 패딩 */
+}
+
+.site-footer {
+    text-align: center; /* 푸터 내용 중앙 정렬 */
+    padding: 20px 0;
+    border-top: 2px solid #DFDFDF;
+}
+
+.footer-content p {
+    margin-bottom: 20px; /* 하단 링크와의 간격 */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* 중앙 정렬을 위한 자동 마진 */
+    display: flex; /* 링크를 일렬로 배치 */
+    justify-content: center; /* 링크를 가운데 정렬 */
+    flex-wrap: wrap; /* 필요 시 줄바꿈 */
+}
+.footer-links li {
+    margin-right: 15px; /* 링크 사이의 간격 */
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: rgb(104, 104, 104); /* 링크 색상 */
+    font-size: 16px; /* 글자 크기 */
+}
+
+.airecommend-page .nav-menu a[href="/airecommend/"] {
+    font-weight: bold; /* 굵은 글씨 */
+    padding-bottom: 2px; /* 밑줄과의 간격 */
+    border-bottom: 2px solid currentColor; /* 현재 글자 색상의 2px 밑줄 */
+    text-decoration: none; /* 기본 밑줄 제거 */
+}
+
+.airemodeling-page .nav-menu a[href="/airemodeling/"] {
+    font-weight: bold; /* 굵은 글씨 */
+    padding-bottom: 2px; /* 밑줄과의 간격 */
+    border-bottom: 2px solid currentColor; /* 현재 글자 색상의 2px 밑줄 */
+    text-decoration: none; /* 기본 밑줄 제거 */
+}
+
+.ai-recommend-section {
+    text-align: center; /* 섹션 내용 중앙 정렬 */
+    padding: 30px; /* 패딩 추가 */
+
+}
+
+.ai-recommend-section h2 {
+    font-size: 32px; /* 제목의 글자 크기 */
+    margin-bottom: 12px; /* 제목과 설명 사이의 간격 */
+}
+
+.ai-recommend-section p {
+    font-size: 22px; /* 설명의 글자 크기 */
+}
+
+.file-upload-container {
+    padding-left: 150px; /* 왼쪽 패딩 */
+    padding-right: 150px; /* 오른쪽 패딩 */
+    max-width: 1500px; /* 컨테이너 최대 너비 (박스 너비 + 양쪽 패딩) */
+    margin-left: auto;
+    margin-right: auto; /* 수평 중앙 정렬 */
+}
+
+.file-upload-label {
+    display: block;
+    border: 2px dashed #ddd;
+    text-align: center;
+    max-width: 1200px; /* 박스 최대 너비 */
+    margin: 0 auto; /* 박스도 중앙 정렬 */
+    padding: 20px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.file-upload-label:hover {
+    background-color: #f8f8f8;
+}
+
+.upload-box {
+    font-size: 16px;
+    color: #666;
+    text-align: center; /* 텍스트 및 이미지 중앙 정렬 */
+    transition: height 0.3s ease; /* 높이 변경에 애니메이션 적용 */
+}
+
+#change-instructions p {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.upload-box img {
+    max-width: 100px; /* 이미지 최대 크기 설정 */
+    height: auto; /* 이미지 높이 자동 조절 */
+    margin-bottom: 10px; /* 이미지와 텍스트 사이 간격 */
+    display: block; /* 이미지를 블록 요소로 설정 */
+    margin-left: auto; /* 이미지 좌측 자동 마진 */
+    margin-right: auto; /* 이미지 우측 자동 마진 */
+}
+
+.upload-box img#preview-image {
+    /* 이미지 스타일 */
+    max-width: 100%; /* 이미지가 박스를 넘지 않도록 */
+    height: auto; /* 이미지 높이 자동 조절 */
+}
+
+.drag-over {
+    border: 2px dashed #666; /* 드래그 중 다른 테두리 스타일 */
+    background-color: #f0f0f0; /* 드래그 중 다른 배경색 */
+}
+
+.analyze-button {
+    display: block; /* 블록 레벨 요소로 설정 */
+    width: 200px; /* 버튼의 너비 */
+    margin: 30px auto; /* 상단에 30px 마진, 자동으로 중앙 정렬 */
+    padding: 10px 20px; /* 패딩 */
+    background-color: #27282A; /* 배경 색상 */
+    color: #FFFFFF; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    font-size: 16px; /* 글자 크기 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.analyze-button:disabled {
+    background-color: #cccccc; /* 비활성화 시 배경 색상 변경 */
+    cursor: default; /* 비활성화 시 커서 변경 */
+}
+
+.popup {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed; /* 고정 위치 */
+    z-index: 1100; /* 다른 요소 위에 표시 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%; /* 전체 너비 */
+    height: 100%; /* 전체 높이 */
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.popup-content {
+    width: 360px; /* 로그인 폼 너비 */
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.input-container {
+    margin-bottom: 15px; /* 입력 필드 간격 */
+}
+
+.input-container input {
+    margin-top: 10px;
+    width: 100%; /* 입력 필드 너비 */
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-container input:focus {
+    outline: none;
+    border-bottom-color: #a67b5b; /* 포커스 색상 */
+}
+
+.login-checkbox {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 15px; /* 체크박스 간격 */
+}
+
+.login-button {
+    width: 100%; /* 버튼 너비 */
+    padding: 10px 0;
+    background-color: #654321;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 20px; /* 라운드 모서리 */
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top:20px;
+}
+
+.login-button:hover {
+    background-color: #a67b5b; /* 버튼 호버 색상 */
+    transform: scale(1.05); /* 버튼 호버 시 크기 증가 */
+}
+
+.social-icons {
+    margin-top: 20px; /* 소셜 아이콘 간격 */
+}
+
+.social-icon img {
+    width: 40px; /* 소셜 아이콘 크기 */
+    height: 40px;
+    margin: 0 15px;
+    margin-top: 20px;
+    border-radius: 50%; /* 아이콘 원형으로 */
+}
+
+.signup-prompt {
+    margin-top: 20px; /* 회원가입 링크 간격 */
+}
+
+.tip-content {
+    display: flex;
+    align-items: flex-start; /* 상단 정렬 */
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.tip-text {
+    flex: 1;
+    text-align: left;
+    position: relative; /* 상대 위치 지정 */
+}
+
+.main-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: left;
+    position: absolute; /* 절대 위치 지정 */
+    top: -40px; /* "Tip!"을 위로 올립니다. 이 값을 조정해 배치를 맞춰주세요 */
+    left: 0; /* 왼쪽 정렬 유지 */
+}
+
+.tip-text h3 {
+    font-size: 24px;
+    margin-top: 50px; /* "Tip!" 제목 아래로 공간을 만들어주세요 */
+    /* 기타 스타일 */
+}
+
+.tip-text p {
+    font-size: 16px;
+    color: #666;
+}
+
+
+.tip-image {
+    flex: 0 1 40%; /* 이미지 크기 조정 */
+    max-width: 50%; /* 이미지 최대 너비 */
+}
+
+.tip-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .tip-content {
+        flex-direction: column;
+    }
+
+    .main-title, .tip-text h3, .tip-text p {
+        font-size: 90%; /* 창 크기가 작아질 때 글자 크기 감소 */
+    }
+
+    .tip-text {
+        margin-bottom: 20px;
+    }
+}
+
+    /* 좌측 열 스타일링 */
+    .left-column {
+        float: left; /* 왼쪽 정렬 */
+        width: 50%; /* 좌측 열 너비 조절 */
+    }
+
+    /* 우측 열 스타일링 */
+    .right-column {
+        float: left; /* 왼쪽 정렬 */
+        width: 50%; /* 우측 열 너비 조절 */
+    }
+
+    /* 색상 상자 스타일링 */
+    .color-box {
+        width: 50px; /* 원하는 너비 조절 */
+        height: 50px; /* 원하는 높이 조절 */
+        margin-right: 10px; /* 색상 상자 사이 간격 조절 */
+    }
+
+    /* 색상 비율 스타일링 */
+    .color-percentage {
+        font-size: 16px; /* 원하는 글꼴 크기 조절 */
+        margin-bottom: 10px; /* 색상 비율 아래 여백 조절 */
+    }
+
+    /* clearfix 추가 (부모 요소가 자식 열의 높이를 고려하도록 함) */
+    .signup-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 auto;
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    .signup-title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px; /* 항목 간 거리 증가 */
+        width: 100%; /* 폼 그룹의 너비 설정 */
+    }
+    
+    .form-group:last-of-type {
+        margin-top: 40px; /* 가입하기 버튼과의 거리 */
+    }
+
+    label {
+        min-width: 150px; /* 라벨 너비 조정 */
+        margin-right: 10px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    select {
+        width: 100%; /* 입력 필드 너비를 컨테이너에 맞게 조정 */
+        padding: 8px; /* 적절한 패딩 추가 */
+        margin-right: 20px;
+        box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+    }
+
+    .submit-button {
+        padding: 8px 18px;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: #27282A;
+        color: #F5F5F5;
+        border: none;
+        border-radius: 18px;
+        display: block;
+    margin: 0 auto; /* 화면 중앙에 버튼 배치 */
+    }
+
+    .personaldata-content,
+.terms_of_use,
+.personal_info_agreement {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.comment {
+    border-top:dotted 1px #ddd;
+    font-size:0.7em;
+}
+
+.anchor {
+    display: block;
+    position: relative;
+    top: -15px;
+    visibility: hidden;
+}
+
+.tr-list {
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-light {
+    color: grey;
+}
+
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%; /* 너비를 100%로 설정 */
+    max-width: 800px; /* 최대 너비를 500px로 설정 */
+    margin: 0 auto; /* 자동 마진으로 가운데 정렬 */
+    padding: 20px; /* 적당한 패딩 추가 */
+}
+
+
+.signup-title {
+    text-align: center; /* 텍스트 가운데 정렬 */
+    margin-bottom: 50px; /* 제목 아래 마진 추가 */
+}
+
+.form-group {
+    display: flex; /* 플렉스 박스 모델 적용 */
+    align-items: center; /* 가로축으로 중앙 정렬 */
+    margin-bottom: 20px; /* 요소들 사이의 마진 설정 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+.form-group label {
+    min-width: 150px; /* 라벨의 최소 너비 설정 */
+    margin-right: 20px; /* 라벨과 입력 필드 사이의 간격 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    flex-grow: 1; /* 남은 공간을 모두 차지하도록 설정 */
+    margin-right: 10px; /* 입력 필드와 버튼 사이의 간격 */
+}
+
+.password-status {
+    margin-top: 10px;
+}
+
+.check-username-button {
+    white-space: nowrap; /* 버튼 텍스트가 줄 바꿈 없이 한 줄에 표시되도록 설정 */
+    padding: 6px 10px; /* 버튼의 패딩 수정 */
+    font-size: 14px; /* 글자 크기 수정 */
+}
+
+.submit-button {
+    width: 100%; /* 버튼의 너비를 부모 요소의 너비에 맞게 설정 */
+    padding: 10px; /* 적당한 패딩 추가 */
+    margin-top: 20px; /* 제출 버튼 위에 마진 추가 */
+}
+
+input::placeholder {
+    text-align: left;
+  }
+
+  /* 개인정보 처리 동의 체크박스와 링크 스타일 */
+.privacy-policy-agreement {
+    display: flex;
+    align-items: center;
+}
+
+.privacy-policy-agreement label {
+    margin-left: 8px;
+    margin-right: 16px;
+}
+
+.privacy-policy-agreement a {
+    color: blue; /* 링크 색상 */
+    text-decoration: underline; /* 밑줄 */
+    cursor: pointer; /* 클릭 가능한 항목임을 나타내는 커서 모양 */
+}
+
+.message {
+    height: 20px; /* 고정 높이 */
+    color: red; /* 메시지 색상 */
+    font-size: 0.8em; /* 작은 글꼴 크기 */
+    margin-top: 5px; /* 입력 필드와의 간격 */
+}
+
+/* 비밀번호 일치 여부를 위한 추가 스타일링 */
+.password-status {
+    color: green; /* 일치 시 색상 */
+}
+
+.privacy-policy-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.privacy-policy-agreement {
+    display: inline-block; /* 블록 요소를 인라인처럼 배열 */
+    text-align: center; /* 내부 요소 좌측 정렬 */
+}
+
+.privacy-policy-agreement input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.privacy-policy-agreement label {
+    margin-right: 10px;
+}
+
+.product-list-container {
+    padding: 20px;
+}
+
+.product-list-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 중앙 정렬 */
+    gap: 20px; /* 카드 사이의 간격 */
+}
+
+.product-card {
+    flex: 0 0 auto; /* 카드의 크기를 고정값에 맞춤 */
+    margin: 10px; /* 카드 주위의 마진 */
+    width: 280px; /* 카드의 너비 */
+    height: 330px; /* 카드의 높이 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 그림자 효과 */
+    text-align: center;
+    background-color: #fff;
+}
+
+.product-link {
+    display: flex;
+    flex-direction: column; /* 세로 방향 정렬 */
+    justify-content: flex-start; /* 상단 정렬 */
+    align-items: center; /* 가운데 정렬 */
+    height: 100%; /* 링크의 높이를 카드 높이에 맞춤 */
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 상속된 색상 사용 */
+}
+
+.product-image {
+    width: 100%; /* 컨테이너의 전체 너비를 차지하도록 설정 */
+    height: 300px; /* 컨테이너의 높이 설정 */
+    background-size: contain; /* 이미지가 컨테이너를 넘어서지 않도록 설정 */
+    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+    background-position: center center; /* 이미지가 컨테이너 중앙에 위치하도록 설정 */
+    background-color: #fff; /* 이미지가 작을 경우 나타나는 배경 색상 설정 */
+}
+.product-info {
+    padding: 10px;
+    width: 100%;
+}
+
+.product-name {
+    font-size: 1em;
+    margin: 5px 0; /* 상품명 위아래 여백 */
+}
+
+.product-price {
+    font-size: 0.8em;
+    color: #555;
+}
+
+.color-sample {
+    display: inline-block;
+    width: 20px; /* 샘플 사각형의 너비 */
+    height: 20px; /* 샘플 사각형의 높이 */
+    border: 1px solid #27282A; /* 테두리 추가 */
+    margin-right: 5px; /* 라벨과의 간격 */
+}
+
+.color-value {
+    vertical-align: middle; /* 샘플 사각형과 텍스트 정렬 */
+}
+
+.style-options {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    flex-wrap: wrap; /* 버튼들이 여러 줄이 필요할 경우를 대비해 줄바꿈 허용 */
+    gap: 10px; /* 버튼 사이의 간격을 조절하고 싶으면 이 값을 조정하세요 */
+    margin-top: 20px; /* 필요에 따라 조절하세요 */
+}
+
+/* 기존의 btn-info 스타일을 오버라이드 */
+.btn-info {
+    background-color: #27282A; /* 새 배경색으로 변경 */
+    border-color: #27282A; /* 버튼 경계선 색상을 설정하고 싶다면 추가하세요 */
+}
+
+/* btn 클래스에 대한 글자색 변경 */
+.btn {
+    color: #FFF; /* 새 글자색으로 변경 */
+}
+
+.btn-primary {
+    background-color: #27282A; /* 새 배경색으로 변경 */
+    border-color: #27282A; /* 버튼 경계선 색상도 변경 */
+}
+
+.uploaded-image-container {
+    max-width: 600px;
+    height: 600px;
+    margin: 0 auto; /* 화면 중앙에 배치 */
+    margin-top: 30px;
+}
+
+.uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 이미지 비율 유지 */
+}
+
+.remodeling-button {
+    padding: 8px 18px;
+    text-decoration: none;
+    font-size: 12px;
+    background-color: #27282A;
+    color: #F5F5F5;
+    border: none;
+    border-radius: 18px;
+    display: inline-block; /* 버튼 크기를 내용에 맞춤 */
+    margin: 0 auto; /* 화면 중앙에 버튼 배치 */
+    margin-top: 30px;
+}
+
+#uploaded-image {
+    max-width: 100%; /* 화면 너비를 초과하지 않도록 */
+    max-height: 400px; /* 최대 높이를 400px로 제한 */
+    display: block; /* 블록 레벨 요소로 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+    margin-top: 30px;
+}
+/* 분석 결과 제목과 결과를 감싸는 컨테이너 스타일 */
+.analysis-results {
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin-bottom: 30px;
+}
+
+/* 그래프와 스타일 분석 결과를 가로로 배치하고 중앙 정렬 */
+.results-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; /* 요소들을 세로로 쌓음 */
+    width: 100%; /* 컨테이너의 너비를 100%로 설정 */
+}
+
+@media (min-width: 768px) {
+    .results-container {
+        flex-direction: row; /* 화면이 충분히 클 때 가로로 배치 */
+    }
+}
+
+/* 그래프 컨테이너 사이즈 조정 */
+.chart-container {
+    max-width: 300px; /* 최대 너비 설정 */
+    height: 300px; /* 높이 설정 */
+    margin: 20px; /* 주변 여백 추가 */
+    margin-right: 100px;
+    align-self: center; /* 개별 아이템을 세로 방향에서 중앙에 배치 */
+}
+
+/* 스타일 분석 결과 스타일 */
+.styles-analysis {
+    max-width: 400px; /* 최대 너비 설정 */
+    margin: 20px; /* 주변 여백 추가 */
+}
+
+/* 스타일 비율에 대한 스타일 */
+.styles-analysis p {
+    font-size: 20px; /* 폰트 크기 설정 */
+    font-weight:900;
+    margin-bottom: 0.25rem; /* 문단 간 여백 설정 */
+    color: #555; /* 폰트 색상 설정, 중간 회색 */
+}
